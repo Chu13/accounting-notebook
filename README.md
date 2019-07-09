@@ -55,3 +55,13 @@ source venv/bin/activate
 ```bash
 python manage.py makemigrations notebook
 ```
+
+```bash
+python manage.py migrate notebook
+```
+
+#### Start
+
+```bash
+python manage.py runserver
+```
