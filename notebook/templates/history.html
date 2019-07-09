@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>History</h1>
+    <div class="card">
+        <h5 class="card-header">Latest Transactions</h5>
+        <ul class="list-group">
+            <li class="d-flex">
+                <b class="col-5 p-2 ml-1">Date</b>
+                <b class="col-4 p-2">Type</b>
+                <b class="col-4 p-2">Amount</b>
+            </li>
+            {% for transaction in transactions %}
+            <li class="list-group-item d-flex">
+                <span class="col-5">{{ transaction.effectiveDate }}</span>
+                <span class="col-4">{{ transaction.type }}</span>
+                {% if transaction.type == "Debit" %}
+                    <span class="text-success col-4">+ {{ transaction.amount }}</span>
+                {% else %}
+                    <span class="text-danger col-4">- {{ transaction.amount }}</span>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock content %}
